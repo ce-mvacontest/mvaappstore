@@ -13,9 +13,7 @@ Join us if you feel excited in creating ministry and engaging apps for the gospe
 ## Run it yourself
 
 #### Getting started
-You can create your own project locally using Yoeman with:
-
-Having Node npm installed, run
+Create a project using yoeman
     $ npm install -g yo
   
 Create and CD into your working project directory then scalfold a blank ionic project and manually replace the /app folder with mine
