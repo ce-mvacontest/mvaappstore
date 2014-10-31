@@ -4,7 +4,7 @@
 An all in one appstore for gospel ministry apps and mobile portal to the mvacontest apps.
 
 ##Like to join?
-Join us if you feel excited in creating ministry and engaging apps for the gospel just like us. 
+Join us if you feel excited about creating ministry and engaging apps for the gospel just like us. 
 
 - Visit our [homepage](http://mvaappstore.com/)
 - [Dev Blog](http://mvaappstore.com/dev/)
@@ -15,7 +15,7 @@ Join us if you feel excited in creating ministry and engaging apps for the gospe
 ####Create Project
 Install yoeman. Create and CD into your working project directory then scalfold a blank ionic project and manually replace the /app folder with mine:
 
-    $ npm install yo
+    $ npm install yo -g
     $ md mvaappstore && cd mvaappstore
     $ yo ionic
     
