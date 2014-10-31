@@ -1,0 +1,63 @@
+<ion-view title="{{navTitle}}">
+    <div class="bar bar-calm">
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        </ion-nav-buttons>
+    </div>
+
+    <ion-content class="has-header">
+      
+        <form ng-submit="applySettings()">
+          
+            <div class="list">
+                <label for="" class="item item-divider">Language Settings</label>
+                <label class="item item-input item-select">
+                    <span class="input-label">Change language</span>
+                    <select ng-model="settings.language">
+                        <option value="en">English</option>
+                        <option value="fr">French</option>
+                        <option value="cn">Chinese</option>
+                        <option value="de">German</option>
+                    </select>
+                </label>
+                
+                <label for="" class="item item-divider">Notification setup</label>
+                <label class="item item-toggle">
+                  Allow Notification
+                  <label class="toggle toggle-assertive">
+                    <input type="checkbox" ng-model="settings.notifications.on">
+                    <span class="track">
+                      <span class="handle"></span>
+                    </span>
+                  </label>
+                </label>
+                <label ng-if="(settings.notifications.on && !settings.notifications.registered)" class="item item-input">
+                    <span class="input-label">
+                        <button class="button button-clear button-positive" ng-click="registerDevice();">Register this device <i class="icon ion-chevron-right"></i></button>
+                    </span>
+                </label>
+                <label ng-if="(settings.notifications.on && settings.notifications.registered)" class="item item-input">
+                    <span class="input-label"><button class="button button-icon-right button-small button-clear" ng-click="deregisterDevice();">De-register this device <i class="icon ion-ios7-close"></i> </button></span>
+                </label>
+                
+                <label class="item item-divider">Search settings</label>
+                <label class="item item-input item-select">
+                    <span class="input-label">Search count limit</span>
+                    <select ng-model="settings.limit">
+                        <option value="0">All Results</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </label>
+                
+                <label class="item item-input">
+                    <button type="Submit" class="button button-positive button-block">Apply settings</button>
+                </label>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

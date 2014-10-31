@@ -1,0 +1,121 @@
+<ion-side-menus>
+
+  <ion-pane ion-side-menu-content class="my-header">
+    <ion-nav-bar class="bar-calm">
+      <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i></ion-nav-back-button>
+    </ion-nav-bar>
+    
+    <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+  </ion-pane>
+
+  <ion-side-menu side="left" id="sidemenu">
+   
+    <ion-content>
+      
+<!--
+      <div class="">
+          <form ng-submit="doSearch();">
+              <div class="item-input-inset">
+                  <div class="item-input-wrapper">
+                      <i class="icon ion-ios7-search placeholder-icon"></i>
+                      <input type="search" placeholder="Search the appstore..." ng-model="search.query">
+                      <button type="reset" class="button button-small button-clear"><i class="icon ion-close-circled"></i></button>
+                  </div>
+
+              </div>
+          </form>
+      </div>
+-->
+
+      <ion-list>
+          <ion-item class="item-divider" style="height: 120px;">
+<!--
+            <center>
+              <img src="images/mvaappstore.png" style="border-radius: 50%; width: 100px; height: 100px; border: 5px solid rgba(255,255,255,0.3)" alt="">
+            </center>
+-->
+          </ion-item>
+          <ion-item class="item-icon-right" nav-clear menu-close href="#/app/explore">
+            <!--<i class="icon ion-ios7-home-outline"></i>--> <span>Explore Valuable Apps</span>
+          </ion-item>
+<!--
+          <ion-item class="item-icon-left" nav-clear menu-close href="#/app/search">
+            <i class="icon ion-ios7-search"></i> <span>Search</span>
+          </ion-item>
+-->
+          <ion-item class="item-icon-left" nav-clear menu-close href="#/app/profile">
+            <i class="icon ion-ios7-person-outline"></i> <span>My Profile</span>
+<!--            <a ng-click="doSignUp()" class="item-note">Sign Up</a>-->
+          </ion-item>
+          <ion-item class="item-icon-left" nav-clear menu-close href="#/app/favourites">
+            <i class="icon ion-ios7-bookmarks-outline"></i> <span>Favourites</span>
+          </ion-item>
+          <ion-item class="item-divider"></ion-item>
+          <ion-item class="item-icon-left" nav-clear menu-close href="#/app/myreviews">
+            <i class="icon ion-ios7-pulse"></i> <span>My Reviews</span>
+            <span class="badge badge-assertive">0</span>
+          </ion-item>
+          <ion-item class="item-icon-left" nav-clear menu-close href="#/app/settings">
+            <i class="icon ion-ios7-gear-outline"></i> <span>Settings</span>
+          </ion-item>
+          <ion-item class="item-divider"></ion-item>
+<!--
+          <ion-item class="item-icon-left" nav-clear menu-close href="#/app/logout">
+            <i class="icon ion-power"></i> <span>Exit App</span>
+          </ion-item>
+-->
+      </ion-list>
+      
+    </ion-content>
+    <ion-footer-bar>
+      <center>&copy; 2014. MVA Appstore, All rights reserved. </center>
+    </ion-footer-bar>
+  </ion-side-menu>
+  
+<!--
+  <ion-side-menu ng-controller="InstallCtrl" side="right">
+      <ion-content style="margin:0; padding:0; background: #444; padding-top: 50%;">
+        <div class="list card" style="margin:0; padding: 0">
+          <div class="item item-body item-dark">
+            <center>
+              <dl>
+                <dt><i class="icon ion-android-friends"></i> Team</dt>
+                <dd class="calm">MVA Team</dd>
+              </dl>
+            </center>
+            
+            <center><i class="icon ion-link"></i> Top Developer</center>
+            <div class="row">
+              
+              <div class="col"><small class="small-text">@praisegeek</small></div>
+              <div class="col"><small class="small-text">@dudex</small></div>
+              <div class="col"><small class="small-text">@soetan</small></div>
+            </div>
+          </div>
+
+          <div class="item item-footer item-stable">
+            <center class="row">
+              <div class="col-25">
+                <button class="button calm button-small button-icon icon ion-eye"><br><center class="small-text">23 Apps</center></button>
+              </div>
+              <div class="col-25">
+                <button class="button calm button-small button-icon icon ion-chatbox-working"><br><center class="small-text">23k Reviews</center></button>
+              </div>
+              <div class="col-25">
+                <button class="button calm button-small button-icon icon ion-ribbon-a"><br><center class="small-text">2 Wins</center></button>
+              </div>
+              <div class="col-25">
+                <button class="button calm button-small button-icon icon ion-thumbsup"><br><center class="small-text">145 Votes</center></button>
+              </div>
+            </center>
+            
+            
+          </div>
+          <center class="padding-top">
+              <button class="button button-block button-calm">VOTE</button>
+            </center>
+        </div>
+      </ion-content>
+  </ion-side-menu>
+-->
+</ion-side-menus>

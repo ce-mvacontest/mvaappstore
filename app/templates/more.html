@@ -1,0 +1,21 @@
+<ion-view title="{{properties.navTitle}} - {{properties.categoryname}}">
+
+    <ion-content class="has-header">
+      
+      <div class="list" padding="false" margin="false">
+          <div class="item item-divider">
+              <h3>{{properties.categoryname}} Apps</h3>
+          </div>
+          
+          <a class="item item-thumbnail-left" ng-href="#/app/install/{{app.id}}" ng-repeat="app in appData | limitTo: properties.itemsToDisplay">
+              <img ng-src="{{env.url + app.icon}}" alt="">
+              <dl>
+                <dt class="app-title">{{app.name}}</dt>
+                <dd class="app-category">{{app.category}}</dd>
+                <dd class="app-rating"><mva-rating count="app.rating_cache"></mva-rating> <span style="font-size: 9px; position:relative; top: -6px">({{app.rating_count}})</span></dd>
+              </dl>
+          </a>
+      </div>
+      <ion-infinite-scroll on-infinite="loadMore()" ng-if="properties.canLoadMore" distance="1%"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>

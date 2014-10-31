@@ -1,0 +1,103 @@
+<ion-view class="explore" title="{{properties.navTitle}}" hide-back-button="{{properties.hideBackButton}}">
+   
+    <div class="bar bar-calm">
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="right">
+           <button class="button button-icon icon ion-ios7-search" ng-click="openFilter()"></button>
+        </ion-nav-buttons>
+    </div>
+    
+    <appstore-menu active-tab-index="1"></appstore-menu>
+        
+    <ion-content class="has-header app-contents has-sub-header">
+       
+        <div class="slidebox-bar">
+            <ion-slide-box show-pager="false" auto-play="true" does-continue="true">
+                <ion-slide ng-repeat="news in slideShow">
+                    <img ng-src="{{env.url + news.path}}" width="100%" alt="">
+                    <p class="caption dark"><span ng-bind-html="news.description"></span> <!--<span class="item-note">FREE</span> --></p>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+
+        <div class="list-grid card">
+            <div class="item item-divider item-calm">
+                <h3>Featured & Latest</h3>
+            </div>
+            <div class="item item-body">
+                <div class="row" ng-repeat="apps in applist.featured | limitTo:8 | partition:4">
+                    <a href="#/app/install/{{app.id}}" class="col" ng-repeat="app in apps" ng-controller="rateThis">
+                        <img ng-src="{{env.url + app.icon}}" width="100%" alt="">
+                        <div class="app-title">{{app.name}}</div>
+                        <div class="app-category">{{app.category}}</div>
+                        <div class="app-rating"><mva-rating count="app.rating_cache"></mva-rating> <span>({{app.rating_count}})</span></div>
+                    </a>
+                    <br ng-if="($index+1)%4==0">
+                    
+                </div>
+            </div>
+            <div class="item footer item-portable item-divider"><a href="#/app/more/Featured" class="button button-clear icon-right ion-android-dropdown button-dark button-small">View More</a></div>
+        </div>
+        
+        <div class="list-grid card">
+            <div class="item item-divider item-calm">
+                <h3>Most Recommended</h3>
+            </div>
+            <div class="item item-body">
+                <div class="row" ng-repeat="apps in applist.recommended | limitTo:4 | partition:4">
+                    <a href="#/app/install/{{app.id}}" class="col" ng-repeat="app in apps" ng-controller="rateThis">
+                        <img ng-src="{{env.url + app.icon}}" width="100%" alt="">
+                        <div class="app-title">{{app.name}}</div>
+                        <div class="app-category">{{app.category}}</div>
+                        <div class="app-rating"><mva-rating count="app.rating_cache"></mva-rating> <span>({{app.rating_count}})</span></div>
+                    </a>
+                    <br ng-if="($index+1)%4==0">
+                    
+                </div>
+            </div>
+            <div class="item footer item-portable item-divider"><a href="#/app/more/Recommended" class="button button-clear icon-right ion-android-dropdown button-dark button-small">View More</a></div>
+        </div>
+        
+        <div class="list-grid card">
+            <div class="item item-divider item-calm">
+                <h3>Pre Release & Testing</h3>
+            </div>
+            <div class="item item-body">
+                <div class="row" ng-repeat="apps in applist.prerelease | limitTo:4 | partition:4">
+                    <a href="#/app/install/{{app.id}}" class="col" ng-repeat="app in apps" ng-controller="rateThis">
+                        <img ng-src="{{env.url + app.icon}}" width="100%" alt="">
+                        <div class="app-title">{{app.name}}</div>
+                        <div class="app-category">{{app.category}}</div>
+                        <div class="app-rating"><mva-rating count="app.rating_cache"></mva-rating> <span>({{app.rating_count}})</span></div>
+                    </a>
+                    <br ng-if="($index+1)%4==0">
+                    
+                </div>
+            </div>
+            <div class="item footer item-portable item-divider"><a href="#/app/more/Prerelease" class="button button-clear icon-right ion-android-dropdown button-dark button-small">View More</a></div>
+        </div>
+        
+        <div class="list-grid card">
+            <div class="item item-divider item-calm">
+                <h3>Top Rated & Winning</h3>
+            </div>
+            <div class="item item-body">
+                <div class="row" ng-repeat="apps in applist.won | limitTo:4 | partition:4">
+                    <a href="#/app/install/{{app.id}}" class="col" ng-repeat="app in apps" ng-controller="rateThis">
+                        <img ng-src="{{env.url + app.icon}}" width="100%" alt="">
+                        <div class="app-title">{{app.name}}</div>
+                        <div class="app-category">{{app.category}}</div>
+                        <div class="app-rating"><mva-rating count="app.rating_cache"></mva-rating> <span>({{app.rating_count}})</span></div>
+                    </a>
+                    <br ng-if="($index+1)%4==0">
+                    
+                </div>
+            </div>
+            <div class="item footer item-portable item-divider"><a href="#/app/more/Top Rated" class="button button-clear icon-right ion-android-dropdown button-dark button-small">View More</a></div>
+        </div>
+        
+    </ion-content>
+</ion-view>

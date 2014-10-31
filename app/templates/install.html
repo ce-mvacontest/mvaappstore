@@ -1,0 +1,118 @@
+<ion-view title="" class="app-contents">
+    <ion-nav-buttons side="right">
+        <a href="#/app/explore" class="button button-icon icon ion-home"></a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button ng-show="properties.favBtn" class="button button-icon icon ion-heart" ng-click="favouriteThis(appInfo.app);"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-share" ng-click="shareThis(appInfo.app);"></button>
+    </ion-nav-buttons>
+    
+    <div class="item item-avatar-left item-stable" style="margin-top: 43px">
+        <img src="{{env.url + appInfo.app.icon}}" height="100%" alt="">
+        <dl style="height: 10px">
+          <dt>{{appInfo.app.name}} <i>by</i>
+            <a href="" ng-if="(appInfo.app.team)" ng-click="toggleDevMenu(appInfo.app.team);">{{appInfo.app.team}}</a>
+            <a href="" ng-if="!(appInfo.app.team)" ng-click="toggleDevMenu(mva-team);">MVA Contest</a>
+          </dt>
+          <dd>{{appInfo.app.category}}</dd>
+          <dd class="app-rating"><mva-rating count="appInfo.app.rating_cache"></mva-rating> <span style="font-size: 9px; position:relative; top: -7px">({{appInfo.app.rating_count}})</span></dd>
+        </dl>
+    </div>
+    
+    <ion-tabs class="tabs-top tabs-icon-left tabs-striped tabs-positive" style="margin-top: 90px;">
+         <ion-tab title="Details" icon-on="ion-android-lightbulb" icon-off="ion-android-lightbulb-outline">
+            <ion-content has-header="false" padding="false">
+                <ion-slide-box auto-play="true" style="background: #bebebe; text-align: center;">
+                    <ion-slide ng-repeat="album in appInfo.app.album">
+                        <img ng-src="{{env.url + album.path}}" height="230px" alt="Image">
+                    </ion-slide>
+                </ion-slide-box>
+                
+                <br>
+                <p class="padding" ng-bind-html="appInfo.app.description"></p>
+                <div class="list-grid card">
+                    <div class="item item-divider item-calm">
+                        <h3 class="stable">Users who installed this also installed</h3>
+                    </div>
+                    <div class="item item-body">
+                        <div class="row">
+                            <a href="#/app/install/{{apps.id}}" class="col" ng-repeat="apps in applist.featured | limitTo:4">
+                                <img ng-src="{{env.url + apps.icon}}" width="100%" alt="">
+                                <dl>
+                                  <dt class="app-title">{{apps.name}}</dt>
+                                  <dd class="app-category">{{apps.category}}</dd>
+                                  <dd class="app-rating"><mva-rating count="apps.rating_cache"></mva-rating> <span>({{apps.rating_count}})</span></dd>
+                                </dl>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="item-divider">
+                    <div class="list">
+                        <div class="item">Version: <span class="item-note">{{appInfo.app.version}}</span></div>
+                        <div class="item">Released on <span class="item-note">{{appInfo.app.created_at}}</span></div>
+                    </div>
+                </div>
+                <br><br><br><br>
+            </ion-content>
+        </ion-tab>
+        <ion-tab title="Reviews" icon-on="ion-thumbsup" icon-off="ion-thumbsup-outline">
+            <ion-content has-header="false" padding="false">
+                <ion-list>
+                  <ion-item class="item-stable item-divider">
+                      <button class="button button-small button-icon icon ion-plus-circled item-note" ng-click="addReview();"> Add Review</button>
+                  </ion-item>
+                  <ion-item class="item-avatar-left" ng-repeat="review in appInfo.app.reviews">
+                      <img src="images/sliders/big/default.jpg" height="100%" alt="">
+                      <p>
+                         <span class="positive">User {{review.user_id}}</span> said <small>{{review.comment}}</small><br>
+                         <small class="assertive">{{review.created_at | timeAgo}}</small>
+                         <mva-rating class="item-note" count="review.rating"></mva-rating>
+                      </p>
+                  </ion-item>
+                  
+                </ion-list>
+            </ion-content>
+        </ion-tab>
+        <ion-tab title="Similar Apps" icon-on="ion-share" icon-off="ion-share-outline">
+            <ion-content has-header="false" padding="false">
+                <ion-list>
+                    <ion-item class="item-thumbnail-left" href="#/app/install/{{similar.id}}" ng-repeat="similar in appInfo.similar | limitTo:6" ng-controller="rateThis" type="item-link">
+                        <img ng-src="{{env.url + similar.icon}}" width="100%" alt="">
+                        <dl>
+                          <dt class="app-title">{{similar.name}}</dt>
+                          <dd class="app-category">{{similar.category}}</dd>
+                          <dd class="app-rating"><mva-rating count="similar.rating_cache"></mva-rating> <span style="font-size: 9px; position:relative; top: -6px">({{similar.rating_count}})</span></dd>
+                        </dl>
+                        
+                    </ion-item>
+                </ion-list>
+            </ion-content>
+        </ion-tab>
+        <ion-tab title="Install" icon-on="ion-archive" icon-off="ion-archive-outline">
+            <ion-content has-header="false">
+                <ion-list>
+                    <ion-item class="dark item-divider">Select platform to install</ion-item>
+                    <!-- iterates if filepath doesnt exist, get app from appstore -->
+                    <ion-item class="item-icon-left" ng-repeat="platform in appInfo.app.appfiles" ng-click="openLink(platform.url);">
+                        <i class="icon ion-social-android balanced" ng-if="platform.apptype.codename == 'Android'"></i>
+                        <i class="icon ion-social-apple dark" ng-if="platform.apptype.codename == 'iOS'"></i>
+                        <i class="icon ion-social-windows calm" ng-if="platform.apptype.codename == 'Windows'"></i>
+                        <img src="images/blackberry.png" style="height:32px; margin-top: 10px;" class="icon" alt="" ng-if="platform.apptype.codename == 'Blackberry'">
+                        <i class="icon ion-ios7-world energized" ng-if="platform.apptype.codename == 'Web'"></i>
+                        {{platform.apptype.codename}}
+                    </ion-item>
+                    <!-- get web location on the mva appstore -->
+                    <ion-item class="item-icon-left" ng-if="!appInfo.app.appfiles.length" ng-click="openLink('http://mvaappstore.com/applications/q/{{appInfo.app.code}}');">
+                      <i class="icon ion-ios7-world energized"></i> Visit original url
+                    </ion-item>
+                    
+                </ion-list>
+            </ion-content>
+        </ion-tab>
+    </ion-tabs>
+    
+</ion-view>

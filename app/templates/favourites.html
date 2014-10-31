@@ -1,0 +1,25 @@
+<ion-view title="{{properties.navTitle}}">
+    <div class="bar bar-calm">
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        </ion-nav-buttons>
+    </div>
+
+    <ion-content class="has-header">
+        <ion-list can-swipe="true">
+            <ion-item class="item-stable" ng-if="properties.favourites.length == 0">
+              <center><i class="icon ion-ios7-lightbulb-outline energized"></i> No favourites found</center>
+            </ion-item>
+            <ion-item class="item-thumbnail-left" ng-repeat="favourite in properties.favourites" href="#/app/install/{{favourite.id}}">
+                <img ng-src="{{env.url + favourite.icon}}" style="height: 80%" alt="">
+                <h2>{{favourite.name}}</h2>
+                <p>{{favourite.category}}
+                    <mva-rating count="favourite.rating_cache"></mva-rating>
+                </p>
+                <ion-option-button class="icon positive ion-share" ng-click="shareThis(favourite)"></ion-option-button>
+                <ion-option-button class="icon assertive ion-trash-a" ng-click="removeThis(favourite)"></ion-option-button>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

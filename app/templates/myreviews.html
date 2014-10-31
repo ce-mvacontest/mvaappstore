@@ -1,0 +1,24 @@
+<ion-view title="{{properties.navTitle}}">
+    <div class="bar bar-calm">
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        </ion-nav-buttons>
+    </div>
+
+    <ion-content class="has-header">
+      
+        <ion-list can-swipe="true">
+            <ion-item class="item-stable" ng-if="!review.length > 0">
+              <center><i class="icon ion-ios7-lightbulb-outline energized"></i> No user reviews</center>
+            </ion-item>
+            <ion-item ng-repeat="review in properties.reviews">
+                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde commodi, porro similique sequi consequatur voluptate!</h2>
+                <span class="portable">Date added</span>
+                <a href="" class="item-note positive">App Name</a>
+                <ion-option-button class="button-calm" ng-click="editThis(review)">Edit</ion-option-button>
+                <ion-option-button class="button-assertive" ng-click="removeThis(review)">Remove</ion-option-button>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

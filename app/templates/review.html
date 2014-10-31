@@ -1,0 +1,38 @@
+<div class="modal">
+    <ion-header-bar align-title="left">
+        <h1 class="title">Add your review</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeReview();">Close</button>
+        </div>
+    </ion-header-bar>
+    
+    <ion-content>
+        <form ng-submit="submitReview();">
+            <div class="list">
+                <label class="item item-select">
+                    <span class="select-label">Rating score</span>
+                    <select ng-model="review.score">
+                        <option value="0">0</option>
+                        <option value="0.5">0.5</option>
+                        <option value="1">1</option>
+                        <option value="1.5">1.5</option>
+                        <option value="2">2</option>
+                        <option value="2.5">2.5</option>
+                        <option value="3">3</option>
+                        <option value="3.5">3.5</option>
+                        <option value="4">4</option>
+                        <option value="4.5">4.5</option>
+                        <option value="5">5</option>
+                    </select>
+                </label>
+                <label class="item item-textarea">
+                    <span class="textarea-label">Review <span class="assertive">( Max 100 words )</span></span>
+                    <textarea cols="30" rows="3" placeholder="Add review text..." ng-model="review.text"></textarea>
+                </label>
+                <label class="item">
+                    <button class="button button-block button-positive" type="submit">Submit Review</button>
+                </label>
+            </div>
+        </form>
+    </ion-content>
+</div>

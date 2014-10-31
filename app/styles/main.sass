@@ -1,0 +1,254 @@
+/* Your app's SASS, go crazy, make it your own */
+/* variables */
+$headerBG: #068
+
+.ionic-logo
+    display: block
+    margin: 15px auto
+    width: 96px
+    height: 96px
+.stars-small, .stars-small span
+    display: block
+    background: url(../images/stars-small.png) 0 -10px repeat-x
+    width: 50px
+    height: 10px
+    
+    span
+        background-position: 0 0
+
+.no-margin
+    margin: 0 !important
+ 
+.small-text
+    font-size: 10px
+    text-overflow: ellipsis
+
+.item-input-inset
+    width: 90%
+
+.item-input-inset, .item-input-wrapper
+    background: none
+  
+    .search-input
+        background: none
+        border-bottom: 1px solid #fff
+        color: #ebebeb !important
+  
+.app-rating
+    .stars-small
+        float: left
+        margin-right: 3px
+      
+.list-inline
+    display: inline !important
+      
+    li
+        float: left
+        margin-left: 5px
+.my-header
+    .bar.bar-calm
+        background: $headerBG
+        color: #fff
+        .icon
+            color: #fff
+
+.pane
+    .bar.bar-subheader.tabs
+        border-bottom: 0px
+        padding: 0
+        
+        .tab-item
+            border-left: 1px solid #bebebe
+            position: relative
+            
+        .tab-item:last-child
+            border-right: 1px solid #bebebe
+        
+        .tab-item:before
+            content: " "
+            position: absolute
+            z-index: 1
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0px
+            border-bottom: 5px solid lightblue
+            
+        .active:before
+            content: " "
+            position: absolute
+            z-index: 1
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0px
+            border-bottom: 5px solid #06abbb !important
+
+
+.has-sub-header
+    margin-top: 49px
+
+#sidemenu
+    background: url('../images/sidemenu-bg.png') no-repeat
+    background-size: cover
+    
+    ion-footer-bar
+        background: transparent
+        color: #fffddd
+        font-size: 11px
+        font-family: 'Myriad Pro', Helvetica, Tahoma
+    .list
+        background: transparent
+        
+        .item, .item-complex .item-content, .item-radio .item-content
+            //background: rgba(0,0,0,0.15)
+            background: transparent
+            border: none
+            margin: 0px 10px
+            
+            a
+                color: #ebebeb
+              
+                .icon
+                    color: lightgreen !important
+                  
+        .item
+//            border: 1px solid #fff
+            
+        .item-divider:not(:first-child)
+//            background: rgba(0,0,0,0.3)
+            
+.app-contents
+    .slidebox-bar
+        height: auto
+        padding: 10px
+        background-color: #000
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#999), to(#000))
+        background-image: -webkit-linear-gradient(top, #999, #000)
+        background-image: -moz-linear-gradient(top, #999, #000)
+        background-image: -o-linear-gradient(top, #999, #000)
+        background-image: linear-gradient(to bottom, #999, #000)
+    .slider-bar
+        height: 230px
+        padding: 10px
+        background-color: #000
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#999), to(#000))
+        background-image: -webkit-linear-gradient(top, #999, #000)
+        background-image: -moz-linear-gradient(top, #999, #000)
+        background-image: -o-linear-gradient(top, #999, #000)
+        background-image: linear-gradient(to bottom, #999, #000)
+          
+        .swiper-slide
+            border-radius: 5px
+            height: 194px
+            margin-top: 10px
+            float: left
+            line-height: 120px
+            width: 273px
+            -webkit-backface-visibility: hidden
+            -moz-backface-visibility: hidden
+            -ms-backface-visibility: hidden
+            backface-visibility: hidden
+            -webkit-box-reflect: below 1px -webkit-linear-gradient(bottom, rgba(0,0,0,0.5) 0px, rgba(0,0,0,0) 50px)
+              
+            a
+                display: block
+                padding: 5px
+                width: 100%
+                height: 100%
+                color: #fff
+                text-align: center
+                text-decoration: none
+                position: relative
+                top: 70px
+                white-space: nowrap
+                overflow: hidden
+                text-overflow: ellipsis
+
+        
+    .list-grid.card
+        margin: 0
+        padding: 0
+        
+        .header
+            border: none
+            h3
+                font-size: 18px
+        
+        .footer
+            .button-clear
+                float: right
+                font-family: Tahoma, 'Helvetica Neue', Arial
+                font-size: 11px
+        .item.item-body
+            padding: 0
+            > .row
+                > .col
+                    margin: 5px
+                    padding: 10px
+                    background: #ebebeb
+                    border-radius: 5px
+                    text-decoration: none
+                    font-size: 9px
+              
+                    .app-title, .app-category, .app-rating
+                        display: block
+                        white-space: nowrap
+                        overflow: hidden
+                        text-overflow: clip
+                        line-height: 11px
+                        color: #373737
+                        
+                    .app-title
+                        color: #000
+                        font-weight: bold
+                        text-overflow: ellipsis
+                        
+                    .col.app-category
+                        text-align: left 
+
+/* modals */
+.modal
+    .bar-header
+        background: $headerBG
+        *:not(.button)
+            color: #fff
+/* popovers */
+.popover
+    /*max-width: 200px*/
+    margin-top: -4px
+.popover:before
+//    content: " "
+//    z-index: 100
+//    position: absolute
+//    display: inline-block
+//    width: 0
+//    height: 0
+//    line-height: 0
+//    border: 10px solid transparent /* calculates the width ratio abs*/
+//    border-bottom: 10px solid #fff
+//    left: 45% !important
+//    top: -20px
+    
+.button.button-icon.input-button
+    position: absolute
+    right: 0
+    top: 0
+    color: #bbb
+    
+.list
+    .item.item-thumbnail-left
+        height: 100px
+
+    .my-item.item
+        left: 0
+        right: 0
+        padding-top: 0
+        padding-bottom: 0
+  
+        img
+            height: 60px
+            width: 60px
+            float: left
+            margin-top: 10px
+            margin-right: 10px

@@ -1,0 +1,33 @@
+<ion-view class="category" title="{{properties.navTitle}}" hide-back-button="{{properties.hideBackButton}}">
+   
+    <div class="bar bar-calm">
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="right">
+            <button class="button button-icon icon ion-ios7-search" ng-click="openFilter()"></button>
+        </ion-nav-buttons>
+    </div>
+    
+    <appstore-menu active-tab-index="0"></appstore-menu>
+    
+    <ion-content has-header="true" class="has-sub-header app-contents">
+      <div class="list" padding="false" margin="false">
+          <div class="item item-divider">
+              <h3>{{categoryApps[0].category}} Apps</h3>
+          </div>
+          
+          <a class="item item-thumbnail-left" ng-href="#/app/install/{{app.id}}" ng-repeat="app in categoryApps | limitTo: properties.itemsToDisplay">
+              <img ng-src="{{env.url + app.icon}}" alt="">
+              <dl>
+                <dt class="app-title">{{app.name}}</dt>
+                <dd class="app-category">{{app.category}}</dd>
+                <dd class="app-rating"><mva-rating count="app.rating_cache"></mva-rating> <span style="font-size: 9px; position:relative; top: -6px">({{app.rating_count}})</span></dd>
+              </dl>
+          </a>
+      </div>
+      <ion-infinite-scroll on-infinite="loadMore()" ng-if="properties.canLoadMore" distance="1%"></ion-infinite-scroll>
+    </ion-content>
+
+</ion-view>

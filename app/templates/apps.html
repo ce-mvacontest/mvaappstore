@@ -1,0 +1,53 @@
+<ion-view class="apps" title="{{properties.navTitle}}" hide-back-button="{{properties.hideBackButton}}">
+   
+    <div class="bar bar-calm">
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="right">
+            <button class="button button-icon icon ion-ios7-search" ng-click="openFilter()"></button>
+        </ion-nav-buttons>
+    </div>
+    
+    <appstore-menu active-tab-index="2"></appstore-menu>
+    <div class="sub-header bar" style="margin-top: 93px">
+        <input type="search" placeholder="Filter apps..."
+          ng-model="properties.search"
+          ng-focus="properties.searchFocused = true"
+          ng-blur="properties.searchFocused = false"
+          ng-change="scrollTop();">
+        <button ng-if="properties.search.length" class="button button-icon ion-android-close input-button"
+          ng-click="clearSearch();"
+        ></button>
+    </div>
+    
+    <ion-content has-header="true" class="has-sub-header app-contents">
+      
+      <div class="list" padding="false" margin="false" style="margin-top: 42px">
+<!--
+          <div class="item item-divider">
+              <h3>App Header - Collection Repeat Demo</h3>
+          </div>
+-->
+          <a class="item"
+             ng-repeat="app in getApps() | limitTo: properties.itemsToDisplay"
+             ng-href="#/app/install/{{app.id}}"
+             ng-style="{'line-height': getItemHeight(app) + 'px', height: getItemHeight(app)}"
+             ng-class="{'item-divider': app.isLetter, 'item-thumbnail-left': !app.isLetter}" 
+             >
+              <img ng-if="!app.isLetter" ng-src="{{env.url + app.icon}}" alt="">
+              <dl ng-if="!app.isLetter">
+                <dt class="app-title">{{app.name}}</dt>
+                <dd class="app-category">{{app.category}}</dd>
+                <dd class="app-rating"><mva-rating count="app.rating_cache"></mva-rating> <span style="font-size: 9px; position:relative; top: -6px">({{app.rating_count}})</span></dd>
+              </dl>
+              <dl ng-if="app.isLetter">
+                <dt>{{app.letter}}</dt>
+              </dl>
+          </a>
+      </div>
+      <ion-infinite-scroll on-infinite="loadMore()" ng-if="properties.canLoadMore" distance="1%"></ion-infinite-scroll>
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,39 @@
+<div class="modal" ng-controller="SearchCtrl">
+    <div class="bar bar-header bar-positive">
+        <div class="item-input-inset">
+          <div class="item-input-wrapper">
+            <i class="icon ion-ios7-search"></i>
+            <input type="search" class="search-input" placeholder="Search apps..."
+              ng-model="properties.search"
+              ng-focus="properties.searchFocused = true"
+              ng-blur="properties.searchFocused = false"
+              ng-change="doSearch();"
+              >
+              <i ng-if="properties.search.length" ng-click="clearSearch();" class="icon ion-android-close"></i>
+          </div>
+        </div>
+        
+        <div class="right-buttons">
+            <button class="button button-small button-calm button-outline" ng-click="closeFilter();">Cancel</button>
+        </div>
+      
+    </div>
+      
+    <ion-content class="has-header">
+      
+      <ion-list>
+        <ion-item ng-if="properties.searchStatus == 0" class="item-divider item-stable">
+          <center>
+            <i class="icon ion-alert-circled assertive"></i>
+            <span>Not results found</span>
+          </center>
+        </ion-item>
+        <ion-item ng-if="properties.searchStatus == 1" class="item-divider item-stable">
+          <center>
+            <i class="icon ion-alert-circled assertive"></i>
+            <span>No network connection</span>
+          </center>
+        </ion-item>
+        
+      </ion-list>
+    </div>
