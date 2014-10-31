@@ -10,12 +10,12 @@ Join us if you feel excited in creating ministry and engaging apps for the gospe
 - [Dev Blog](http://mvaappstore.com/dev/)
 - [Read more](http://mvacontest.com/news)
 
-## Run it yourself
+## Get started
 
-#### Getting started
+#### Create Project
 Create a project using yoeman
     $ npm install -g yo
-  
+    
 Create and CD into your working project directory then scalfold a blank ionic project and manually replace the /app folder with mine
     $ md mvaappstore && cd mvaappstore
     $ yo ionic
