@@ -1,5 +1,5 @@
-MVA-Appstore Mobile
-======================
+![alt tag](https://raw.githubusercontent.com/ce-mvacontest/mvaappstore/master/icon.png) MVA-Appstore Mobile
+==========================================
 
 An all in one appstore for gospel ministry apps and mobile portal to the mvacontest apps.
 
