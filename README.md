@@ -7,10 +7,10 @@ An all in one appstore for gospel ministry apps and mobile portal to the mvacont
 ## Like to join?
 Join us if you feel excited in creating ministry and engaging apps for the gospel just like us. 
 
-Help links
-------------
-[Dev Blog](http://mvaappstore.com/dev/)
-[Read more](http://mvacontest.com/news)
+####Help links
+----------------
+-[Dev Blog](http://mvaappstore.com/dev/)
+-[Read more](http://mvacontest.com/news)
 
 ## Run it yourself
 
