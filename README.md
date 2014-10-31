@@ -3,24 +3,23 @@
 
 An all in one appstore for gospel ministry apps and mobile portal to the mvacontest apps.
 
-## Like to join?
+##Like to join?
 Join us if you feel excited in creating ministry and engaging apps for the gospel just like us. 
 
 - Visit our [homepage](http://mvaappstore.com/)
 - [Dev Blog](http://mvaappstore.com/dev/)
 - [Read more](http://mvacontest.com/news)
 
-## Get started
+##Get started
 
-#### Create Project
+####Create Project
 Create a project using yoeman
     $ npm install -g yo
-    
 Create and CD into your working project directory then scalfold a blank ionic project and manually replace the /app folder with mine
     $ md mvaappstore && cd mvaappstore
     $ yo ionic
-  
-#### Add Plugins
+    
+####Add Plugins
 Add the following plugins to the application:
 
     $ cordova plugin add https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git
@@ -40,11 +39,11 @@ Plugin versions used
     org.apache.cordova.inappbrowser 0.5.1 "InAppBrowser"
     org.apache.cordova.splashscreen 0.3.2 "Splashscreen"
 
-#### Add a Platform
+####Add a Platform
     $ cordova platform add android
   
-#### Test the App on your browser using grunt and livereload
+####Test the App on your browser using grunt and livereload
     $ grunt serve
   
-#### Build the App
+####Build the App
     $ grunt build
