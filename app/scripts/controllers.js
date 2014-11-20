@@ -310,6 +310,11 @@ angular.module('MvaAppstore.controllers', [])
   $scope.properties.favBtn = true;
   $scope.properties.favItems = storage.getLocalItem('favourites') || [];
   
+  $scope.viewAll = function(app) {
+    app.textLength = 9999;
+    $('#readmoretext').fadeOut();
+  };
+  
   //get resource from API then update view with fetched resource
   $ionicLoading.show();
   $scope.applist = AppList.all();
@@ -318,6 +323,9 @@ angular.module('MvaAppstore.controllers', [])
     AppStore.fetchApp($stateParams.appId).then(function(resp) {
       //console.log(resp);
       $scope.appInfo.app = resp;
+      //append textLength to text info
+      //then look at the appended text and examine ht filees\
+      $scope.appInfo.app.textLength = 200;
       $scope.appInfo.similar = [];
 
       angular.forEach($scope.applist.all, function(data,i) {
@@ -363,6 +371,8 @@ angular.module('MvaAppstore.controllers', [])
   };
   
   $scope.openLink = function(url) {
+    //Todo
+    // initialize the appstore app installed on the users device..
     console.log(url);
     //window.open here
     $window.open(url, '_blank', 'location=yes');

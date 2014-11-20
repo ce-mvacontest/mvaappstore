@@ -19,6 +19,24 @@ $headerBG: #068
 .no-margin
     margin: 0 !important
  
+.vertical-align-parent
+    -webkit-transform-style: preserve-3d
+    -moz-transform-style: preserve-3d
+    transform-style: preserve-3d
+      
+    .vertical-align
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+          
+.fade-bar
+    height: 20px
+    width: 100%
+    position: fixed
+    z-index: 9999
+    opacity: 0
+    background-color: #000
+
 .small-text
     font-size: 10px
     text-overflow: ellipsis

@@ -9,29 +9,40 @@
         <button class="button button-icon icon ion-share" ng-click="shareThis(appInfo.app);"></button>
     </ion-nav-buttons>
     
-    <div class="item item-avatar-left item-stable" style="margin-top: 43px">
+    <div class="item item-thumbnail-left item-stable" style="margin-top: 43px">
         <img src="{{env.url + appInfo.app.icon}}" height="100%" alt="">
         <dl style="height: 10px">
-          <dt>{{appInfo.app.name}} <i>by</i>
+          <dt><strong>{{appInfo.app.name}}</strong> <i>by</i>
             <a href="" ng-if="(appInfo.app.team)" ng-click="toggleDevMenu(appInfo.app.team);">{{appInfo.app.team}}</a>
             <a href="" ng-if="!(appInfo.app.team)" ng-click="toggleDevMenu(mva-team);">MVA Contest</a>
           </dt>
-          <dd>{{appInfo.app.category}}</dd>
+          <dd><span>{{appInfo.app.category}}</span></dd>
           <dd class="app-rating"><mva-rating count="appInfo.app.rating_cache"></mva-rating> <span style="font-size: 9px; position:relative; top: -7px">({{appInfo.app.rating_count}})</span></dd>
         </dl>
     </div>
     
-    <ion-tabs class="tabs-top tabs-icon-left tabs-striped tabs-positive" style="margin-top: 90px;">
+    <ion-tabs class="tabs-top tabs-icon-left tabs-striped tabs-positive" style="margin-top: 105px;">
          <ion-tab title="Details" icon-on="ion-android-lightbulb" icon-off="ion-android-lightbulb-outline">
             <ion-content has-header="false" padding="false">
-                <ion-slide-box auto-play="true" style="background: #bebebe; text-align: center;">
+                <ion-slide-box auto-play="true" show-pager="false" style="background: #bebebe; text-align: left;">
+                    <ion-slide ng-if="!appInfo.app.album.length">
+                        <div style="height:230px; text-align: center;" class="vertical-align-parent">
+                          <span class="vertical-align"><i class="icon ion-images"></i></span>
+                        </div>
+                    </ion-slide>
                     <ion-slide ng-repeat="album in appInfo.app.album">
                         <img ng-src="{{env.url + album.path}}" height="230px" alt="Image">
                     </ion-slide>
                 </ion-slide-box>
                 
                 <br>
-                <p class="padding" ng-bind-html="appInfo.app.description"></p>
+                <div>
+                  <p class="padding" ng-bind-html="appInfo.app.description|limitTo: appInfo.app.textLength"></p>
+                  <a ng-click="viewAll(appInfo.app)" style="color: #068; position: relative; top: -20px; bottom: 10px" id="readmoretext">Read more <i class="icon ion-ios7-arrow-down"></i></a>
+                  <div class="clearfix"></div>
+                </div>
+                
+                
                 <div class="list-grid card">
                     <div class="item item-divider item-calm">
                         <h3 class="stable">Users who installed this also installed</h3>
